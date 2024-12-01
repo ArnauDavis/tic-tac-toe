@@ -1,4 +1,32 @@
-.container{
+body{
     display: flex;
+    justify-content: center;
+}
+
+
+.container{
+    height: 80vh;
+    width: 80vh;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    grid-template-rows: repeat(3, 1fr)
+}
+
+.container div {
+    background-color: lightblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
     
+}
+
+/* border for board*/
+
+#a1, #a2, #a3, #b1, #b2, #b3 {
+    border-bottom: 1px solid black;
+}
+
+#a2, #a3, #b2, #b3, #c2, #c3 {
+    border-left: 1px solid black;
 }
