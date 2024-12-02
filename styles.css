@@ -12,12 +12,12 @@ body{
     grid-template-rows: repeat(3, 1fr)
 }
 
-.container div {
+.container .playerSpace {
     background-color: lightblue;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 24px;
+    font-size: 15vh;
     
 }
 
