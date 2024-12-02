@@ -9,6 +9,39 @@ const c1 = document.querySelector('#c1').innerText
 const c2 = document.querySelector('#c2').innerText
 const c3 = document.querySelector('#c3').innerText
 
+//misc values used
+
+
+
+
+
+//defining buttons
+let startButton = document.querySelector('.glowing-btn')
+let resetBtn = document.querySelector('.resetButton')
+
+//adding event listeners to buttons
+startButton.addEventListener('click',startGame)
+resetBtn.addEventListener('click',resetGame)
+
+
+//functions to start or reset game
+
+function startGame(){
+    startButton.style.display='none'
+    resetBtn.style.display='block'
+}
+
+function resetGame(){
+    startButton.style.display='block'
+    resetBtn.style.display='none'
+    count = 0
+    gotcha.forEach(div =>{
+        div.innerText = ''
+        div.style.backgroundColor = '#003366' 
+    })
+
+}
+
 //array values needed to win
 const player1Win = ['O','O','O']
 const player2Win = ['X','X','X']
@@ -36,20 +69,32 @@ let player2Won = winnerArray.some(innerArray => JSON.stringify(innerArray) === J
 //special variable 
 let count = 0
 
-//adding event listeners to each div to trigger function
+//selecting every div marked as a player space
 let gotcha = document.querySelectorAll('.playerSpace')
+
+//adding event listeners to each div to trigger function
 gotcha.forEach(space =>{
     space.addEventListener('click',function(element){
-    count+=1
-    if(count % 2 == 0){
-        element.target.innerText = 'X'
-        
-    }else{
-        element.target.innerText = 'O'
-        
-    }
-    })
-})
+        if(startButton.style.display !== 'none'){
+
+        }else{
+        if(element.target.innerText == ''){
+            count+=1
+            //here playerspace changes based on turn
+            if(count % 2 == 0){
+                element.target.innerText = 'X'
+                element.target.style.color = '#ffffe0'
+                element.target.style.backgroundColor = '#71eeb8'
+            }else{
+                element.target.innerText = 'O'
+                element.target.style.color = '#71eeb8'
+                element.target.style.backgroundColor = '#ffffe0'
+
+            }
+        }//if checking if space is empty
+    }//else to trigger only if start button is clicked
+    })//event Listener
+})//for Each
 
 
 
