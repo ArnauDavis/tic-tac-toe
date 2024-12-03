@@ -34,6 +34,8 @@ function startGame(){
         symbolHolder.style.color= '#ffffe0'
     }
     
+    
+    
 }
 
 function resetGame(){
@@ -89,6 +91,7 @@ function getStats(){
 
 function whoWon(){
     let winnerArray = getStats()
+    let showTime = winnerArray.some(innerArray => innerArray.includes(''))
     
     let player1Won = winnerArray.some(innerArray => JSON.stringify(innerArray) === JSON.stringify(player1Win))
     let player2Won = winnerArray.some(innerArray => JSON.stringify(innerArray) === JSON.stringify(player2Win)) 
@@ -108,6 +111,13 @@ function whoWon(){
         turnNumber.style.color = '#71eeb8'
         symbolHolder.innerText = ''
 
+    }else if (showTime == false){
+        console.log('game is a tie')
+        count += 999999
+        turnNumber.innerText = 'Like a shoe lace... you\'ve tied!'
+        turnNumber.style.color = '#fdfd96'
+        turnNumber.style.textAlign = 'center'
+        symbolHolder.innerText = ''
     }
     // I kept trying different ways to remove the event lisenters so the game couldn't be played anymore
     //to think the solution of just making an out of bounds count worked is amazing
@@ -155,6 +165,7 @@ gotcha.forEach(space =>{
                 }
             }//if checking if space is empty
             whoWon()
+
         }//else to trigger only if start button is clicked
     }// if count is less than 9999
     })//event Listener
