@@ -1,7 +1,8 @@
 
 
 //misc values used
-
+let turnNumber = document.querySelector('.turnHere')
+let symbolHolder = document.querySelector('.symbolHere')
 
 
 
@@ -20,6 +21,19 @@ resetBtn.addEventListener('click',resetGame)
 function startGame(){
     startButton.style.display='none'
     resetBtn.style.display='block'
+    count +=  Math.floor(Math.random() * 2)
+    if(count % 2 == 0){
+        turnNumber.innerText = 'It is Player 1\'s turn!'
+        turnNumber.style.color ='#ffffe0'
+        symbolHolder.innerText = '0'
+        symbolHolder.style.color= '#71eeb8'
+    }else{
+        turnNumber.innerText = 'It is Player 2\'s turn!'
+        turnNumber.style.color ='#71eeb8'
+        symbolHolder.innerText = 'X'
+        symbolHolder.style.color= '#ffffe0'
+    }
+    
 }
 
 function resetGame(){
@@ -30,6 +44,8 @@ function resetGame(){
         div.innerText = ''
         div.style.backgroundColor = '#003366' 
     })
+    turnNumber.innerText = ''
+    symbolHolder.innerText = ''
 
 }
 
@@ -62,7 +78,7 @@ function getStats(){
     const c1Across = [c1,c2,c3]
     
     const a1Diagonal = [a1,b2,c3]
-    const c1Diagonal = [c3,b2,a3]
+    const c1Diagonal = [c1,b2,a3]
     
     return [
         a1Down, a2Down, a3Down,
@@ -80,10 +96,18 @@ function whoWon(){
     if (player1Won) {
         console.log('Player 1 (O) won!');
         count += 999999
+        turnNumber.innerText = 'Player 1 won!'
+        turnNumber.style.color = '#ffffe0'
+        symbolHolder.innerText = ''
+
         
     } else if (player2Won) {
         console.log('Player 2 (X) won!');
         count += 999999
+        turnNumber.innerText = 'Player 2 won!'
+        turnNumber.style.color = '#71eeb8'
+        symbolHolder.innerText = ''
+
     }
     // I kept trying different ways to remove the event lisenters so the game couldn't be played anymore
     //to think the solution of just making an out of bounds count worked is amazing
@@ -108,15 +132,26 @@ gotcha.forEach(space =>{
             }else{
             if(element.target.innerText == ''){
                 count+=1
+                //if odd, player 1/ O goes, if even player 2/ X goes
                 //here playerspace changes based on turn
                 if(count % 2 == 0){
                     element.target.innerText = 'X'
                     element.target.style.color = '#ffffe0'
                     element.target.style.backgroundColor = '#71eeb8'
+                    turnNumber.innerText = 'It is Player 1\'s turn!'
+                    turnNumber.style.color ='#ffffe0'
+                    symbolHolder.innerText = '0'
+                    symbolHolder.style.color= '#71eeb8'
+
                 }else{
                     element.target.innerText = 'O'
                     element.target.style.color = '#71eeb8'
-                    element.target.style.backgroundColor = '#ffffe0'  
+                    element.target.style.backgroundColor = '#ffffe0'
+                    turnNumber.innerText = 'It is Player 2\'s turn!'
+                    turnNumber.style.color ='#71eeb8'
+                    symbolHolder.innerText = 'X'
+                    symbolHolder.style.color= '#ffffe0'
+                                          
                 }
             }//if checking if space is empty
             whoWon()
@@ -124,6 +159,7 @@ gotcha.forEach(space =>{
     }// if count is less than 9999
     })//event Listener
 })//for Each
+
 
 
 
