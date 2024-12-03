@@ -26,7 +26,7 @@ body{
 @import url("https://fonts.googleapis.com/css?family=Raleway");
 
 :root {
-  --glow-color: #daa520;
+  --glow-color: #f0e68c;
 }
 
 *,
@@ -57,6 +57,8 @@ body{
       0px -0.6px 0.5em 0px var(--glow-color);
     animation: border-flicker 2s linear infinite;
   }
+
+
   
   .glowing-txt {
     float: left;
@@ -67,6 +69,7 @@ body{
       0 0 0.45em var(--glow-color);
     text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.45em var(--glow-color);
     animation: text-flicker 3s linear infinite;
+    color: #ffb6c1;
   }
   
   .faulty-letter {
@@ -235,23 +238,28 @@ body{
 
 /*credit to https://codepen.io/atechajay ,thank you for the button!*/
 
+:root{
+    --main-color: #ffa85c;
+}
 .resetButton {
     border: none;
-    padding: 20px 40px;
+    padding: 0px 40px;
     font-size: 44px;
     position: relative;
     background: transparent;
-    color: #ffa500;
+    color: var(--main-color);
     text-transform: uppercase;
-    border: 3px solid #ffa500;
+    border: 3px solid var(--main-color);
     cursor: pointer;
     transition: all 0.7s;
     overflow: hidden;
     border-radius: 100px;
+    height: 70px;
+    width: 15rem;
   }
 
   .resetButton:hover {
-    color: #000;
+    color: #6379ab;
   }
   span {
     transition: all 0.7s;
@@ -265,7 +273,7 @@ body{
     top: 0;
     width: 25%;
     height: 100%;
-    background: #ffa500;
+    background: var(--main-color);
   }
 
   .resetButton:hover .first {
@@ -279,7 +287,7 @@ body{
     top: -100%;
     height: 100%;
     width: 25%;
-    background: #ffa500;
+    background: var(--main-color);
   }
 
   .resetButton:hover .second {
@@ -294,7 +302,7 @@ body{
     height: 100%;
     top: 100%;
     width: 25%;
-    background: #ffa500;
+    background: var(--main-color);
   }
 
   .resetButton:hover .third {
@@ -309,7 +317,7 @@ body{
     top: 0;
     height: 100%;
     width: 25%;
-    background: #ffa500;
+    background: var(--main-color);
   }
 
   .resetButton:hover .fourth {
