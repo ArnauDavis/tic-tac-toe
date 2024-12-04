@@ -14,6 +14,7 @@ nice, 10/10.
 ## How It's Made: 
 
 **Tech used:** HTML, CSS, JavaScript, Vercel
+
 Starting in the HTML and CSS, I used the body as a flex container, to give me everything in a centered column. I feel pretty clever with how I created the board for the game, in the css I used only the ids I needed
 to create a single line on certain squares, I could have given each of these IDed divs a class to share so I would only have to select the class, but it was more fun my way. The buttons I found online and I changed some of 
 the css to match my needs. I had fun going through someone else's code to figure out what did what and how to change things without breaking the whole set up. 
